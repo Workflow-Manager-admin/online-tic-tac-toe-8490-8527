@@ -1,3 +1,42 @@
 <div class="container">
-  <h1>{{ title }}</h1>
+  <div class="game-panel">
+    <h1 class="main-title" [style.color]="'#1976d2'">{{ title }}</h1>
+    <!-- Player Indicators -->
+    <div class="player-indicators">
+      <span class="player-label" [class.active]="game.currentPlayer === 'X'">Player X</span>
+      <span class="vs">vs</span>
+      <span class="player-label" [class.active-o]="game.currentPlayer === 'O'">Player O</span>
+    </div>
+    <!-- Board -->
+    <app-tic-tac-toe-board
+      [board]="game.board"
+      [isGameOver]="game.status !== 'running'"
+      [winningLine]="game.winningLine"
+      (cellClicked)="onCellClicked($event)">
+    </app-tic-tac-toe-board>
+    <!-- Status Message -->
+    <div class="status-area">
+      <ng-container [ngSwitch]="game.status">
+        <span *ngSwitchCase="'win'">
+          <span class="win-message">
+            🎉 Winner: <b [style.color]="game.winner === 'X' ? '#1976d2' : '#ff4081'">{{ game.winner }}</b>
+          </span>
+        </span>
+        <span *ngSwitchCase="'draw'">
+          <span class="draw-message">
+            🤝 It's a draw! Well played.
+          </span>
+        </span>
+        <span *ngSwitchCase="'running'">
+          <span class="turn-message">
+            <span [style.color]="game.currentPlayer === 'X' ? '#1976d2' : '#ff4081'">
+              {{ game.currentPlayer }}
+            </span>'s turn
+          </span>
+        </span>
+      </ng-container>
+    </div>
+    <!-- Reset Button -->
+    <button class="reset-btn" (click)="resetGame()">Reset Game</button>
+  </div>
 </div>

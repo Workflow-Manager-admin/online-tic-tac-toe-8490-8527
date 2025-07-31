@@ -1,0 +1,9 @@
+<div class="board">
+  <div
+    class="cell"
+    *ngFor="let cell of board; let idx = index"
+    [ngClass]="{ 'highlight': isWinningCell(idx), 'filled-x': cell === 'X', 'filled-o': cell === 'O' }"
+    (click)="onCellClick(idx)">
+    {{ cell }}
+  </div>
+</div>

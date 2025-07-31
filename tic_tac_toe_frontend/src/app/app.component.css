@@ -3,14 +3,113 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #ffffff;
+  background: #fafafa;
 }
 
-h1 {
-  color: #1976d2;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
+.game-panel {
+  background: #fff;
+  border-radius: 22px;
+  padding: 38px 38px 30px 38px;
+  box-shadow: 0 2px 28px 0 rgba(25, 118, 210, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 310px;
+}
+
+.main-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.player-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  gap: 14px;
+}
+
+.player-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: 1000px;
+  background: #e3eefe;
+  color: #1976d2;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 0 1px #1976d222;
+}
+
+.player-label.active, .player-label.active-o {
+  background: #1976d2;
+  color: #fff;
+  box-shadow: 0 2px 8px #1976d210;
+}
+
+.player-label.active-o {
+  background: #ff4081;
+  color: #fff;
+  box-shadow: 0 2px 8px #ff408155;
+}
+
+.vs {
+  font-size: 1.2rem;
+  color: #424242;
+  font-weight: 300;
+  margin: 0 8px;
+}
+
+.status-area {
+  margin-top: 24px;
+  min-height: 32px;
+  text-align: center;
+  font-size: 1.16rem;
+}
+
+.win-message {
+  color: #ff4081;
+  font-weight: 700;
+  background: #fff1fa;
+  padding: 7px 24px;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1.5px #ff408166;
+}
+
+.draw-message {
+  color: #424242;
+  font-weight: 600;
+  background: #f1f1f3;
+  padding: 7px 24px;
+  border-radius: 20px;
+}
+
+.turn-message {
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.reset-btn {
+  margin-top: 30px;
+  background: #1976d2 linear-gradient(90deg, #1976d2 60%, #ff4081 100%);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 22px;
+  padding: 13px 62px;
+  box-shadow: 0 4px 24px #1976d222;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.2s;
+  outline: none;
+}
+
+.reset-btn:hover,
+.reset-btn:focus {
+  background: #ff4081 linear-gradient(90deg, #ff4081 50%, #1976d2 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px #ff408144;
 }
